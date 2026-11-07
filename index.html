@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechStarter Day</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
@@ -12,28 +13,57 @@
         <h1>TechStarter Day 2026</h1>
         <p>Dari pengguna teknologi menjadi pembuat teknologi.</p>
 
-        <nav aria-label="Navigasi utama">
-            <a href="#tentang">Tentang</a>
-            <a href="#agenda">Agenda</a>
-            <a href="#kontak">Kontak</a>
+        <nav class="site-nav">
+            <ul>
+            <li> <a href="#tentang">Tentang</a> </li>
+            <li> <a href="#agenda">Agenda</a> </li>
+            <li> <a href="#kontak">Kontak</a> </li>
+            </ul>
         </nav>
     </header>
 
+
+    
     <main>
-        <section id="tentang">
-            <h2>Tentang TechStarter Day</h2>
+
+<section id="tentang">
+    <h2>Tentang TechStarter Day</h2>
+    <p>
+        TechStarter Day adalah kegiatan pengenalan dunia pengembangan web untuk mahasiswa baru Teknologi Informasi.
+    </p>
+
+    <div class="card-list">
+        <article class="card">
+            <h3>Tujuan Kegiatan</h3>
             <p>
-                TechStarter Day adalah kegiatan pengenalan dunia pengembangan web untuk mahasiswa baru Teknologi Informasi.
+                Peserta mengenal cara developer menyusun informasi,
+                menggunakan tools, membaca error, dan membangun sesuatu secara bertahap.
             </p>
+        </article>
 
-            <article class="card">
-                <h3>Tujuan Kegiatan</h3>
-                <p>
-                    Peserta mengenal cara developer menyusun informasi, menggunakan tools, membaca error, dan membangun sesuatu secara bertahap.
-                </p>
-            </article>
-        </section>
+        <article class="card">
+            <h3>HTML</h3>
+            <p>
+                Mempelajari struktur dan elemen dasar halaman web.
+            </p>
+        </article>
 
+        <article class="card">
+            <h3>DevTools</h3>
+            <p>
+                Mencoba memeriksa tampilan dan menemukan error pada halaman web.
+            </p>
+        </article>
+
+        <article class="card">
+            <h3>Git</h3>
+            <p>
+                Menyimpan dan melacak perkembangan project.
+            </p>
+        </article>
+    </div>
+</section>
+```
         <section id="agenda">
             <h2>Agenda</h2>
             <ol>
@@ -59,6 +89,8 @@
             </ul>
         </section>
     </main>
+    <button id="checkSeatBtn" type="button">Cek Sisa Kursi
+</button>
 
     <footer id="kontak">
         <p>Politeknik Gajah Tunggal . Teknologi Informasi</p>
