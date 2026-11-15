@@ -89,8 +89,28 @@
             </ul>
         </section>
     </main>
-    <button id="checkSeatBtn" type="button">Cek Sisa Kursi
-</button>
+
+<section id="registration" class="registration-card" aria-labelledby="registrationTittle">
+    <h2 id="registrationTittle">Cek Ketersediaan Kursi</h2>
+
+    <form id="registrationForm"> 
+        <label for="participantName">Nama peserta</label> 
+        <input id="participantName" type="text" required maxlength="60">
+        <label for="seatRequest">Jumlah kursi</label>
+        <input id="seatRequest" type="number" min="1" step="1" required>
+        
+        <button type="submit">Simpan Registrasi</button>
+    </form> 
+
+    <p id="seatMessage" class="status neutral" aria-live="polite">
+        Masukkan jumlah kursi lalu tekan cetak kursi.
+    </p>
+</section>
+<section aria-labelledby="registrationTitle">
+    <h2 id="registrationTitle">Daftar Registrasi</h2>
+    <p id="registrationSummary">Belum ada registrasi.</p>
+    <ul id="registrationList"></ul>
+</section>
 
     <footer id="kontak">
         <p>Politeknik Gajah Tunggal . Teknologi Informasi</p>
