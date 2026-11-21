@@ -164,3 +164,16 @@ img {
 #registrationForm input {
   display: block;
 }
+
+.mentor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+.mentor-card {
+  border: 1px solid #d9e2ec;
+  border-radius: 12px;
+  padding: 1rem;
+}
+.status-error {color: #ff1900;}
+.status-success {color: #067647;}

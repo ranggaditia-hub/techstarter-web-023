@@ -151,3 +151,69 @@ function deleteRegistration(id) {
   renderRegistrations(); 
   setStatus("Registrasi dihapus.", "success"); 
 } 
+const MENTOR_API_URL = "https://jsonplaceholder.typicode.com/users?_limit=0";
+async function testMentorApi() {
+  const response = await fetch(MENTOR_API_URL);
+  console.log("status:", response.status);
+  console.log("ok:", response.ok);
+
+  const users = await response.json();
+  console.table(users);
+  return users;
+}
+
+const mentorStatus = document.querySelector("#mentorStatus"); 
+const mentorList = document.querySelector("#mentorList"); 
+const reloadMentorsButton = document.querySelector("#reloadMentors"); 
+ 
+function renderMentors(users) { 
+  mentorList.replaceChildren(); 
+ 
+  users.forEach((user) => { 
+    const card = document.createElement("article"); 
+    card.className = "mentor-card"; 
+ 
+    const name = document.createElement("h3"); 
+    name.textContent = user.name; 
+ 
+    const company = document.createElement("p"); 
+    company.textContent = `Company: ${user.company.name}`; 
+ 
+    const email = document.createElement("p"); 
+    email.textContent = `Email: ${user.email}`;
+    card.append(name, company, email); 
+    mentorList.append(card); 
+  }); 
+}
+async function loadMentors() { 
+  mentorStatus.textContent = "Memuat data mentor..."; 
+  mentorStatus.className = ""; 
+  mentorList.replaceChildren(); 
+ 
+  try { 
+    const response = await fetch(MENTOR_API_URL); 
+ 
+    if (!response.ok) { 
+      throw new Error(`HTTP ${response.status}`); 
+    } 
+ 
+    const users = await response.json(); 
+ 
+    if (!Array.isArray(users) || users.length === 0) { 
+      mentorStatus.textContent = "Belum ada mentor untuk ditampilkan."; 
+      return; 
+    } 
+ 
+    renderMentors(users); 
+    mentorStatus.textContent = `${users.length} mentor berhasil dimuat.`; 
+    mentorStatus.className = "status-success"; 
+  } catch (error) { 
+    console.error("Gagal memuat mentor:", error); 
+    mentorStatus.textContent = 
+      "Data mentor gagal dimuat. Periksa jaringan lalu coba lagi."; 
+    mentorStatus.className = "status-error"; 
+  } 
+} 
+ 
+reloadMentorsButton.addEventListener("click", loadMentors); 
+loadMentors();
